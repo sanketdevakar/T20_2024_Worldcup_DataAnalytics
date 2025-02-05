@@ -1,10 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
-import html5lib
 import pandas as pd
 import csv
-import re
-
 
 player_name = []
 runs = []
@@ -14,6 +11,9 @@ fours = []
 sixes = []
 strikerate = []   
 mins = []
+
+# Parsing links to get the batting scorecard
+
 with open("scorecard.csv", "r") as f:
     csvreader = csv.DictReader(f)
     for row in csvreader:
@@ -62,13 +62,14 @@ with open("scorecard.csv", "r") as f:
                 strikerate.append(first_inning[i][7])
         except IndexError:
             pass
-            
 
+        
         first_inning.clear()
         second_inning.clear()
 
 df = pd.DataFrame({'Player': pd.Series(player_name), 'Dismissal': pd.Series(dismissal), 'Runs' : pd.Series(runs), 'Balls': pd.Series(balls_faced), '4s': pd.Series(fours), '6s': pd.Series(sixes),
                    'Strikerate': pd.Series(strikerate) })
+
 df.to_csv('Main1.csv', index=False, encoding='utf-8')     
 
 
