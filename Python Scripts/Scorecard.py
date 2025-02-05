@@ -18,6 +18,7 @@ for scorecard in soup.find_all("a", attrs={'class': "ds-no-tap-higlight"}):
 
       list1.append(scorecard.get("href"))
 
+# Storing scorecard links into csv file 
 
 df = pd.DataFrame({'Scorecard_link' : list1})
 df.to_csv('scorecard.csv', index=False, encoding='utf-8')
