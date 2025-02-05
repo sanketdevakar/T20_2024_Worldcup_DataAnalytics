@@ -1,9 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
-import html5lib
 import pandas as pd
 import csv
-import re
+
+# Parsing links to get the bowling scorecard
 
 with open("scorecard.csv", "r") as f:
     csvreader = csv.DictReader(f)
