@@ -55,6 +55,7 @@ for i in range(len(squad_link)):
         position.append(i.find("p").text)
   
 
+# Storing data into csv file
 
 df = pd.DataFrame({'Player_Name': player_name,  'Age' : age, 'Batting_style': batting_style, 'Position': position, 'Bowling_Style': bowling_style,
                    'Image': image})
